@@ -9,11 +9,9 @@ class Solution:
         for c in s.lower():
             if c.isalnum():
                 string += c
-        print(string)
         i = 0
         j = len(string) - 1
         while i < j:
-            print(i,j,string[i], string[j])
             if string[i] != string[j]: 
                 return False
             i += 1
