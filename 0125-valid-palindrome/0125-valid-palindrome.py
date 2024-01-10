@@ -2,6 +2,7 @@ class Solution:
     def isPalindrome(self, s: str) -> bool:
         # .isalnum() check if a character is alphanumeric
         # If we don't wanna use built-in func .isalnum, we can use ascii order to check
+        # but this seems to be slower than using built-in func
         def isAlphaNum(c):
             return ((ord('A') <= ord(c) <= ord('Z')) or 
                     (ord('a') <= ord(c) <= ord('z')) or 
