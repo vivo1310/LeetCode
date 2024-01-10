@@ -26,11 +26,16 @@ class Solution:
 #         return root
         
         # Sol2: recursion
-        if not root:
-            return None
-        root.left, root.right = root.right, root.left # swap
+#         if not root:
+#             return None
+#         root.left, root.right = root.right, root.left # swap
         
-        # repeat for left and right sub-tree
-        self.invertTree(root.left)
-        self.invertTree(root.right)
-        return root
+#         # repeat for left and right sub-tree
+#         self.invertTree(root.left)
+#         self.invertTree(root.right)
+#         return root
+
+        # Sol3: shorter recursion
+        if root:
+            root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+            return root
