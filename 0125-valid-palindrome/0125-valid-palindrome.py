@@ -22,30 +22,17 @@ class Solution:
         i = 0
         j = len(s) - 1
         while i < j:
-            # firstAlnum = s[i].isalnum()
-            # secondAlnum = s[j].isalnum()
-            if s[i].isalnum() and s[j].isalnum():
+            firstAlnumCheck = s[i].isalnum()
+            secondAlnumCheck = s[j].isalnum()
+            if firstAlnumCheck and secondAlnumCheck:
                 if s[i].lower() != s[j].lower():
                     return False
                 else:
                     i += 1
                     j -= 1
-            elif not s[i].isalnum():
+            elif not firstAlnumCheck:
                 i += 1
-            elif not s[j].isalnum():
+            elif not secondAlnumCheck:
                 j -= 1
-            # check for alnum
-#             if not s[i].isalnum(): 
-#                 i += 1
-#             if not s[j].isalnum():
-#                 j -= 1
-                
-#             print(i,j,s[i],s[j])
-#             # check for palindrom
-#             if s[i].lower() != s[j].lower():
-#                 return False
-#             else:
-#                 i += 1
-#                 j -= 1
         return True
         
