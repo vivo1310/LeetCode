@@ -8,7 +8,7 @@ class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         # take a parent node, look at the children, swap them
         # now a child node become parent node, repeat that until no more child
-        # q is the queue of parent nodes
+        # q is the queue of parent nodes, stack or queue both works fine, doesn't matter order of in and out
 #         if not root:
 #             return None
 #         q = [root]
