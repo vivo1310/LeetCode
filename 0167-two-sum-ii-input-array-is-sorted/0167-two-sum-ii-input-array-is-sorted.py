@@ -6,8 +6,8 @@ class Solution:
         # if sum < target, move i forward, i++
         # if sum == target, return index
         # since guarantee 1 solution, iterate til i > j or iterate half number of item in the list
-        i = 0
-        j = len(numbers) - 1
+        # therefore, time O(n), space O(1) no extra space required
+        i,j = 0, len(numbers) - 1
         while i < j:
             s = numbers[i] + numbers[j]
             if s == target:
