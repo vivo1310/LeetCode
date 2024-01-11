@@ -17,6 +17,4 @@ class Solution:
                 last = stack.pop()
                 if c != hashMap[last]:
                     return False
-        if stack == []: return True
-        return False
-        # return True
+        return True if stack == [] else False
