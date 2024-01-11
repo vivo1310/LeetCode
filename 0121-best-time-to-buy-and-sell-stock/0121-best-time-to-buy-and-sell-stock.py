@@ -3,10 +3,11 @@ class Solution:
         if len(prices) == 1: return 0
         l = 0
         r = 1
-        maxP = prices[r] - prices[l]
+        maxP = 0
         while r < len(prices):
+            currP = prices[r] - prices[l]
             if prices[l] < prices[r]:
-                maxP = max(maxP, prices[r] - prices[l])
+                maxP = max(maxP, currP)
                 # we're buy at low, sell at high, keep L, move R forward
                 r += 1
             else:
