@@ -1,6 +1,6 @@
 class Solution:
     def isValid(self, s: str) -> bool:
- 
+        # time and space O(n)
         hashMap = {
             "(":")",
             "[":"]",
