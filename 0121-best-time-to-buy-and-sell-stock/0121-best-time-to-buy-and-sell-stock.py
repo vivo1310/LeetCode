@@ -13,5 +13,5 @@ class Solution:
             else:
                 # we're at buy high, sell low, not good, replace L with R, move R 1 point forward from new L
                 l = r
-                r = l + 1
+                r = l + 1 # or r += 1
         return maxP if maxP > 0 else 0
