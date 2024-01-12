@@ -1,20 +1,19 @@
 class Solution:
-    def search(self, nums: List[int], target: int) -> int:
-        # if len(nums) == 1: return 0 if nums[0] == target else -1
-        
+    def search(self, nums: List[int], target: int) -> int:        
         l,r = 0, len(nums) - 1
-        m = (l + r) // 2
-        # print(m)
+        # (m)
             
         while l <= r:
+            m = (l + r) // 2
+            # to prevent overflow (cannot add 2 big numbers in other languages):
+            # add l to the mid distance of r and l
+            # m = l + (r - l) // 2
             if nums[m] == target:
                 return m
             elif target < nums[m]:
                 r = m - 1
             else:
                 l = m + 1
-            m = (l + r) // 2
-            
         return -1
     
     # def binarySearch(nums, left, right, target):
