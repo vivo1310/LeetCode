@@ -12,7 +12,7 @@ class Solution:
         if head.next: # if we still have sub-problem
             newHead = self.reverseList(head.next)
             head.next.next = head
-        head.next = None
+            head.next = None
         return newHead
     
     
