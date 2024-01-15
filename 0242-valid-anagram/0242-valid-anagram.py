@@ -20,10 +20,11 @@ class Solution:
             return False
         smap = {}
         for c in s:
-            if c in smap:
-                smap[c] += 1
-            else:
-                smap[c] = 1
+            smap[c] = 1 + smap.get(c, 0) # short version for the below
+            # if c in smap:
+            #     smap[c] += 1
+            # else:
+            #     smap[c] = 1
         for c in t:
             if c not in smap:
                 return False
