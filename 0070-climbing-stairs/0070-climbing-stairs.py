@@ -33,4 +33,4 @@ class Solution:
             dp[x] = climb(x-1, dp) + climb(x-2, dp)
             return dp[x]
         
-        return climb(n-1,dp)
+        return climb(n - 1,dp)
