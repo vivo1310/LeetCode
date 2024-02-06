@@ -4,17 +4,23 @@ class Solution:
         # eg. to find 3, we look at the first number of each row (1, 10 and 23)
         # it falls in the range of 1 to 10
         # so we search first row by using binary search
-        # step 1: find the row
+        # step 1: find the row by binary search the matrix
         # step 2: binary search the row
-        # step 1
-        R = 0
-        for i in range(len(matrix)):
-            row = matrix[i]
-            if target >= row[0]:
-                R = i
-                
-        # step 2
-        nums = matrix[R]
+        
+        # step 1 - 
+        top, bot = 0, len(matrix) - 1
+        while top <= bot:
+            mid = (top + bot) // 2
+            if target < matrix[mid][0]:
+                bot = mid - 1
+            elif target > matrix[mid][-1]:
+                top = mid + 1
+            else:
+                # target falls in the range of matrix[mid]
+                break            
+        
+        # step 2 - O(logn) n is number of col
+        nums = matrix[mid]
         l,r = 0, len(nums) - 1
         while l <= r:
             m = (l + r) // 2 
@@ -25,3 +31,4 @@ class Solution:
             else:
                 l = m + 1
         return False
+        # O(m + logn)
