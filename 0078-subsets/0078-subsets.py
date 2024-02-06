@@ -10,3 +10,13 @@ class Solution:
             subsets = temp
             i += 1
         return subsets
+    
+    #     include 1?
+    #         yes.[1]                                   no.[]
+    #         |         \                             /        \
+    #     include 2?                                 /          \
+    #         |           \                         /            \
+    #     yes.[1,2]        no.[1]               yes.[2]            no.[]
+    #     include 3?          |     \             |     \           |    \
+    #         |    \          |      \            |      \          |     \
+    # yes.[1,2,3]  no.[1]   yes.[1,3] no.[1]   yes.[2,3] no.[2]    yes.[3] no.[]
