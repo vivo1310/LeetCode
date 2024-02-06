@@ -7,7 +7,7 @@ class Solution:
         # step 1: find the row by binary search the matrix
         # step 2: binary search the row
         
-        # step 1 - 
+        # step 1 - O(logm) m is number of row
         top, bot = 0, len(matrix) - 1
         while top <= bot:
             mid = (top + bot) // 2
@@ -31,4 +31,4 @@ class Solution:
             else:
                 l = m + 1
         return False
-        # O(m + logn)
+        # O(logm + logn) -> O(log(m*n))
