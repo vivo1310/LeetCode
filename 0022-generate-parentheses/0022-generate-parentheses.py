@@ -10,13 +10,11 @@ class Solution:
             
             if open < n:
                 comb += "("
-                # open += 1
                 backtrack(comb, open + 1, close)
                 comb = comb[:-1]
 
             if open > close:
                 comb += ")"
-                # close += 1
                 backtrack(comb, open, close + 1)
                 comb = comb[:-1]
 
