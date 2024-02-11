@@ -2,12 +2,16 @@ class MinStack:
 
     def __init__(self):
         self.stack = []
-        self.minStack = [] # storing min at the end of the list, (val, i) where i in index of that val in stack
+        self.minStack = [] # storing min val only
 
     def push(self, val: int) -> None:
         self.stack.append(val)
-        minVal = min(val, self.minStack[-1] if self.minStack else val)
+        minVal = val
+        if self.minStack:
+            minVal = min(val, self.minStack[-1])
         self.minStack.append(minVal)
+        # minVal = min(val, self.minStack[-1] if self.minStack else val)
+        # self.minStack.append(minVal)
 
     def pop(self) -> None:
         self.stack.pop()
