@@ -7,11 +7,14 @@ class Solution:
         #     if find in map:
         #         return [map[find],i]
         #     map[n] = i
-        
+
         # use enumerate to get the index and the value of the array's item
-        hashMap = dict() # val:index
+        hashMap = {}  # val:index
         for i, n in enumerate(nums):
             m = target - n
             if m in hashMap:
-                return [hashMap[m], i] # i is current index, hashMap[m] is index of m in nums array
+                return [
+                    hashMap[m],
+                    i,
+                ]  # i is current index, hashMap[m] is index of m in nums array
             hashMap[n] = i
