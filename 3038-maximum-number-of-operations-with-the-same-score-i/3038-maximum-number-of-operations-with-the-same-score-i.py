@@ -6,7 +6,6 @@ class Solution:
         while len(nums) >= 2:
             currScore = nums[0] + nums[1]
             if currScore == score:
-                score = currScore
                 nums = nums[2:]
                 res += 1
             else:
