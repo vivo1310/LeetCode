@@ -9,14 +9,24 @@ class Solution:
 #         return nums[-1] + 1
     
         # Follow up: ask for O(1) space and O(n)?
-        # Sum all numbers
-        n = len(nums)
-        expectedSum = sum([x for x in range(n+1)])
+        # Sum all numbers S O(n) T O(n)
         # 0 1 2 3 4 -> n=4 -> sum=1+2+3+4=10
-        print(expectedSum)
-        actualSum = 0
-        for n in nums:
-            actualSum += n
-        return expectedSum - actualSum
+        # n = len(nums)
+        # expectedSum = sum([x for x in range(n+1)])
+        # actualSum = 0
+        # for n in nums:
+        #     actualSum += n
+        # return expectedSum - actualSum
+    
+        # Hashmap S O(n) T O(n)
+        n = len(nums)
+        arr = [-1 for x in range(n+1)]
+        for num in nums:
+            arr[num] = num
+            
+        for i, num in enumerate(arr):
+            if num == -1: return i
+        
+        
         
         
