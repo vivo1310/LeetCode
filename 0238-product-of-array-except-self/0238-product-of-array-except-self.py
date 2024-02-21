@@ -7,14 +7,11 @@ class Solution:
         for i in range(1, n): # in-order
             prefix = prefix * nums[i-1]
             res.append(prefix)
-            # prefix = prefix * 
-        print(res)
         
         postfix = 1
         for i in range(n-2, -1, -1): # in-reserve
             postfix = postfix * nums[i+1]
             res[i] = res[i] * postfix
-        print(res)
         
         return res
             
