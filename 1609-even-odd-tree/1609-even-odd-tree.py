@@ -5,15 +5,49 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isEvenOddTree(self, root: Optional[TreeNode]) -> bool:           
+    def isEvenOddTree(self, root: Optional[TreeNode]) -> bool: 
+        
+#         currLevel = [root]
+#         even = True
+        
+#         while currLevel:
+#             # print(list(x.val for x in currLevel)) # traverse BFS and print level by level
+#             if even:
+#                 if not all(x.val % 2 == 1 for x in currLevel) \
+#                     or not all(x.val < y.val for x, y in zip(currLevel, currLevel[1:])):
+#                     return False
+#             else:
+#                 if not all(x.val % 2 == 0 for x in currLevel) \
+#                     or not all(x.val > y.val for x,y in zip(currLevel, currLevel[1:])):
+#                     return False
+                
+#             nextLevel = []
+#             for node in currLevel:
+#                 for child in [node.left, node.right]:
+#                     if child is not None: 
+#                         nextLevel.append(child)
+#             currLevel = nextLevel
+#             even = not even
+#         return True
+
+
+#         def isStrictlyOrder(lst, reverse=False):
+#             stack = []
+#             for i in lst:
+#                 if reverse:
+#                     if stack and i >= stack[-1]: return False
+#                 else:
+#                     if stack and i <= stack[-1]: return False
+#                 stack.append(i)
+#             return True
+
         def isStrictlyOrder(lst, reverse=False):
-            stack = []
-            for i in lst:
-                if reverse:
-                    if stack and i >= stack[-1]: return False
-                else:
-                    if stack and i <= stack[-1]: return False
-                stack.append(i)
+            if reverse:
+                for i in range(len(lst) - 1):
+                    if lst[i] <= lst[i+1]: return False
+            else:
+                for i in range(len(lst) - 1):
+                    if lst[i] >= lst[i+1]: return False
             return True
     
         def isValid(isEven, nodes):
