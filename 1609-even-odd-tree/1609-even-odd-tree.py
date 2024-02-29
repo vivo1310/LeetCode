@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def isEvenOddTree(self, root: Optional[TreeNode]) -> bool:           
-        def is_strictly_order(lst, reverse=False):
+        def isStrictlyOrder(lst, reverse=False):
             stack = []
             for i in lst:
                 if reverse:
@@ -16,38 +16,38 @@ class Solution:
                 stack.append(i)
             return True
     
-        def isValid(level, nodes):
-            if level % 2 == 0: # even-indexed
-                if not is_strictly_order(nodes): # must be strictly increasing
+        def isValid(isEven, nodes):
+            if isEven:
+                if not isStrictlyOrder(nodes): # must be strictly increasing
                     return False
                 for n in nodes:
                     if n % 2 == 0: # must be odd
                         return False
                 return True
             else:
-                if not is_strictly_order(nodes, True): # must be strictly descreasing
+                if not isStrictlyOrder(nodes, reverse=True): # must be strictly descreasing
                     return False
                 for n in nodes:
                     if n % 2 != 0:
                         return False
                 return True
-            
+        
+        # BFS, do condition check (isValid) at each level
         currLevel = [root]
-        currIndex = 0
+        isEven = True
 
         while currLevel:
             nextLevel = []
             currLevelNodes = []
             for n in currLevel:
-                # check conditions
                 currLevelNodes.append(n.val)
                 if n.left: 
                     nextLevel.append(n.left)
                 if n.right:
                     nextLevel.append(n.right)
-           
-            if not isValid(currIndex, currLevelNodes): return False
+            # check condition of Even-Odd tree
+            if not isValid(isEven, currLevelNodes): return False
 
             currLevel = nextLevel
-            currIndex += 1
+            isEven = not isEven # flip
         return True  
