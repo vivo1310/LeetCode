@@ -1,4 +1,5 @@
 from sortedcontainers import SortedList
+
 class Solution:
     def resultArray(self, nums: List[int]) -> List[int]:
         arr1 = [nums[0]]
@@ -8,24 +9,24 @@ class Solution:
         s2 = SortedList(arr2)
 
         # doing greaterCount by sort arr
-        for i in range(2,len(nums)):
-            a = len(arr1) - s1.bisect_right(nums[i])
-            b = len(arr2) - s2.bisect_right(nums[i])
+        for x in nums[2:]:
+            a = len(arr1) - s1.bisect_right(x)
+            b = len(arr2) - s2.bisect_right(x)
 
             if a > b:
-                arr1.append(nums[i])
-                s1.add(nums[i])
+                q = 1 # add to arr1
             elif a < b:
-                arr2.append(nums[i])
-                s2.add(nums[i])
+                q = 2 # add to arr2
             else:
-                if len(arr1) < len(arr2):
-                    arr1.append(nums[i])
-                    s1.add(nums[i])
-                elif len(arr1) > len(arr2):
-                    arr2.append(nums[i])
-                    s2.add(nums[i])
+                if len(arr1) > len(arr2):
+                    q = 2
                 else:
-                    arr1.append(nums[i])
-                    s1.add(nums[i])
+                    q = 1
+                    
+            if q == 1:
+                arr1.append(x)
+                s1.add(x)
+            else:
+                arr2.append(x)
+                s2.add(x)
         return arr1 + arr2
