@@ -13,14 +13,13 @@ class Solution:
         for _ in range(n):
             fast = fast.next
         
-        print(fast)
-        if not fast: return slow.next
+        if not fast: return slow.next # edge case
         
-        while fast.next:
+        while fast.next: # start moving 2 pointers which are n-step apart
             fast = fast.next
             slow = slow.next
-        print(slow)
         
+        # remove node
         slow.next = slow.next.next
         
         return head
