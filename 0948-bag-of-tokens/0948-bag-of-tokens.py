@@ -1,8 +1,6 @@
-from sortedcontainers import SortedList
-
 class Solution:
     def bagOfTokensScore(self, tokens: List[int], power: int) -> int:
-        sortedTokens = SortedList(tokens)
+        sortedTokens = sorted(tokens)
                 
         # when power >= min token, face-up, pop(0), score += 1, decrease power
         # else power >= 1, face-down, pop(-1), score -= 1, increase power
