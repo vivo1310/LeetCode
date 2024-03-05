@@ -3,8 +3,6 @@ class Solution:
         i, j = 0, len(s) - 1
         
         while i < j:
-            if len(s) == 1:
-                return 1
             if s[i] == s[j]:
                 while i + 1 < len(s) and s[i +1 ] == s[i]:
                     i += 1
