@@ -19,13 +19,23 @@ class Solution:
         # return False
     
         # Using Hash table
-        hashSet = set()
-        temp = head
-        while temp:
-            if temp in hashSet:
+        # hashSet = set()
+        # temp = head
+        # while temp:
+        #     if temp in hashSet:
+        #         return True
+        #     hashSet.add(temp)
+        #     temp = temp.next
+        # return False
+    
+        slow, fast = head, head
+
+        while slow and fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+            if slow == fast:
                 return True
-            hashSet.add(temp)
-            temp = temp.next
         return False
         
         
