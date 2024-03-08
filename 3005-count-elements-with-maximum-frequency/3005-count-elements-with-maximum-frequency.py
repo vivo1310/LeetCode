@@ -1,6 +1,6 @@
 class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
-        # O(n) Time O(n) Space
+        # O(2n) Time O(n) Space
 #         counter = collections.Counter(nums)
 #         count = 0
 #         maxFreq = 0
@@ -13,7 +13,7 @@ class Solution:
                 
 #         return count
     
-        
+        # Above is O(2n), combine the 2 loops to O(N)
         hm = {}
         maxFreq = 0
         count = 0
