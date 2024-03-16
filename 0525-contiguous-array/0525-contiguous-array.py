@@ -16,9 +16,11 @@ class Solution:
                 count += -1
             else:
                 count += 1
-            if count in hm:
+                
+            if count == 0: # we encounter this count of 0 again, update maxlen
+                best = i + 1
+            elif count in hm:
                 best = max(best, i-hm[count])
             else:
                 hm[count] = i
-            # print(hm, count, best)
         return best
