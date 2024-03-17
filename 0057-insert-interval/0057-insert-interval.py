@@ -9,27 +9,18 @@ class Solution:
         res = []
         n = len(intervals)
         i = 0
-        while i < n and intervals[i][1] < newInterval[0]:
+        
+        while i < n and intervals[i][1] < newInterval[0]: # case 1
             res.append(intervals[i])
             i += 1
-        while i < n and intervals[i][1] >= newInterval[0] and intervals[i][0] <= newInterval[1]:
+            
+        while i < n and intervals[i][1] >= newInterval[0] and intervals[i][0] <= newInterval[1]: # case 2
             newInterval[0] = min(intervals[i][0], newInterval[0])
             newInterval[1] = max(intervals[i][1], newInterval[1])
             i += 1
         res.append(newInterval)
         
-        while i < n:
+        while i < n: # case 3
             res.append(intervals[i])
             i += 1
-        # for i in intervals:
-        #     if i[1] < newInterval[0] or i[0] > newInterval[1]: # case 1 and 3
-        #         res.append(i)
-        #     # elif i[0] > newInterval[1]: # case 3.
-        #     #     res.append(i)
-        #     else:
-        #         newInterval[0] = min(i[0], newInterval[0])
-        #         newInterval[1] = max(i[1], newInterval[1])
-            
-        # print(newInterval)
-        # print(res)
         return res
