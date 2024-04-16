@@ -18,7 +18,7 @@ class Solution:
                 currRight = node.right
                 node.left = TreeNode(val, left = currLeft)
                 node.right = TreeNode(val, right = currRight)
-                return root
+                return node
             traverse(node.left, currDepth + 1)
             traverse(node.right, currDepth + 1)
             return node
